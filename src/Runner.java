@@ -1,7 +1,7 @@
 public class Runner {
     public static void main(String[] args)
     {
-        double[] y = new double[100000];
+        double[] y = new double[1000];
         for(int i=0;i<y.length;i++)
         {
             y[i] = Math.random()*10;
@@ -37,7 +37,7 @@ public class Runner {
             x[i] = (int)(Math.random()*10);
         }
         str = "";
-        for(int i=0;i<y.length;i++)
+        for(int i=0;i<x.length;i++)
         {
             str += (x[i]) + " ";
         }
@@ -46,7 +46,7 @@ public class Runner {
         InPlaceSorts.insertionSort(x);
         System.out.println(System.currentTimeMillis() - time);
         str = "";
-        for(int i=0;i<y.length;i++)
+        for(int i=0;i<x.length;i++)
         {
             str += (x[i]) + " ";
         }
@@ -54,20 +54,28 @@ public class Runner {
         System.out.println(str);
 
 
+        System.out.println("\n");
+        System.out.println("\n");
 
+        System.out.println("\n");
 
+        str = "";
+        String[] z = randomStringArr(10,1);
+        for(int i=0;i<z.length;i++)
+        {
+            str += (z[i]) + " ";
+        }
+        System.out.println(str);
+        InPlaceSorts.bubbleSort(z);
+        str ="";
+        for(int i=0;i<z.length;i++)
+        {
+            str += (z[i]) + " ";
+        }
 
-
-
-
-
-
-
-
-
-
+        System.out.println(str);
     }
-    public String[] randomStringArr(int num, int length){
+    public static String[] randomStringArr(int num, int length){
         String[] arr = new String[num];
         while(num>0)
         {

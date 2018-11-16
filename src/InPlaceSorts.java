@@ -1,20 +1,19 @@
-import java.util.Arrays;
 
 public class InPlaceSorts {
-    public static void insertionSort(int[] arr)
+    public static void insertionSort(int[] list1)
     {
-        int[] arrCopy = new int[arr.length];
+        int[] list1Copy = new int[list1.length];
 
-        for(int i=0;i<arr.length;i++) {
+        for(int i=0;i<list1.length;i++) {
             int check = 0;
             check++;
-            arrCopy[i] = arr[i];
+            list1Copy[i] = list1[i];
             if (i != 0) {
                 int pos = i;
                 while (check > 0) {
                     if(pos > 0) {
-                        if (arr[pos - check] > arr[pos]) {
-                            swap(arr, (pos - check), pos);
+                        if (list1[pos - check] > list1[pos]) {
+                            swap(list1, (pos - check), pos);
                             pos--;
                         } else {
                             check = 0;
@@ -54,8 +53,45 @@ public class InPlaceSorts {
     }
     public static void bubbleSort(String[] list1)
     {
+        boolean swapDone = false;
+        int check = list1.length;
+        while(!swapDone)
+        {
+            int j=1;
+            swapDone = true;
+            if(check == list1.length-1)
+            {
+                for(int i=0;i<list1.length-1;i++) {
+                    if (list1[i].compareTo(list1[j])>0){
+                        swap(list1,i,j);
+                        swapDone =false;
 
+                    }
+                    if(list1[i].compareTo(list1[j])<=0)
+                    {
+                        check = j;
+                    }
+                    j++;
+                }
+
+            }
+            else{
+                for(int i=0;i<list1.length-1;i++) {
+                    if (list1[i].compareTo(list1[j])>0){
+                        swap(list1,i,j);
+                        swapDone =false;
+
+                    }
+                    if(list1[i].compareTo(list1[j])<=0)
+                    {
+                        check = j;
+                    }
+                    j++;
+                }
+            }
+        }
     }
+
     public static void swap(double[] x,int y, int z)
     {
         double temp = x[z];
@@ -68,5 +104,10 @@ public class InPlaceSorts {
         x[z] = x[y];
         x[y] = temp;
     }
-
+    public static void swap(String[] x,int y, int z)
+    {
+        String temp = x[z];
+        x[z] = x[y];
+        x[y] = temp;
+    }
 }
